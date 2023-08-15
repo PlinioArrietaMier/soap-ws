@@ -1,6 +1,8 @@
 
 package com.gmltest.soapws;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -30,7 +32,7 @@ public class PokemonEndPoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetPokemonRequest")
     @ResponsePayload
-    public GetPokemonResponse getPokemon(@RequestPayload GetPokemonRequest request) {
+    public GetPokemonResponse getPokemon(@RequestPayload GetPokemonRequest request) throws IOException {
         GetPokemonResponse response = new GetPokemonResponse();
         TypPokemon typPokemon = new TypPokemon();
         //Obtener datos desde repositorio
