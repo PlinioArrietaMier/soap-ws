@@ -9,6 +9,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import com.gmltest.generated.GetPokemonRequest;
 import com.gmltest.generated.GetPokemonResponse;
+import com.gmltest.generated.TypPokemon;
 import com.gmltest.services.Repositorio;
 
 /**
@@ -31,7 +32,14 @@ public class PokemonEndPoint {
     @ResponsePayload
     public GetPokemonResponse getPokemon(@RequestPayload GetPokemonRequest request) {
         GetPokemonResponse response = new GetPokemonResponse();
-        response.setCountry(repositorio.findCountry(request.getName()));
+        TypPokemon typPokemon = new TypPokemon();
+        //Obtener datos desde repositorio
+        typPokemon.setName(repositorio.getTestRepositorio().getName());
+        typPokemon.setUrl(repositorio.getTestRepositorio().getUrl());
+
+        // Salida 
+        response.setPokemon(typPokemon);
+        //response.setCountry(repositorio.findCountry(request.getName()));
 
         return response;
     }    
