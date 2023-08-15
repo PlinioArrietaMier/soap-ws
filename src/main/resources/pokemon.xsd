@@ -21,7 +21,7 @@
     <xs:complexType name="typ_pokemon">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
-            <xs:element name="url" type="xs:int"/>
+            <xs:element name="url" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>   
 </xs:schema>
